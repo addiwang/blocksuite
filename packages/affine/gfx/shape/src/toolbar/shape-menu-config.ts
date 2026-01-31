@@ -21,7 +21,7 @@ type Config = {
   name: ShapeToolOption['shapeName'];
   generalIcon: TemplateResult<1>;
   scribbledIcon: TemplateResult<1>;
-  tooltip: string;
+  tooltipKey: string;
   disabled: boolean;
 };
 
@@ -30,35 +30,35 @@ export const ShapeComponentConfig: Config[] = [
     name: ShapeType.Rect,
     generalIcon: SquareIcon(),
     scribbledIcon: ScribbledSquareIcon,
-    tooltip: 'Square',
+    tooltipKey: 'square',
     disabled: false,
   },
   {
     name: ShapeType.Ellipse,
     generalIcon: EllipseIcon(),
     scribbledIcon: ScribbledEllipseIcon,
-    tooltip: 'Ellipse',
+    tooltipKey: 'ellipse',
     disabled: false,
   },
   {
     name: ShapeType.Diamond,
     generalIcon: DiamondIcon(),
     scribbledIcon: ScribbledDiamondIcon,
-    tooltip: 'Diamond',
+    tooltipKey: 'diamond',
     disabled: false,
   },
   {
     name: ShapeType.Triangle,
     generalIcon: TriangleIcon(),
     scribbledIcon: ScribbledTriangleIcon,
-    tooltip: 'Triangle',
+    tooltipKey: 'triangle',
     disabled: false,
   },
   {
     name: 'roundedRect',
     generalIcon: RoundedRectangleIcon(),
     scribbledIcon: ScribbledRoundedRectangleIcon,
-    tooltip: 'Rounded rectangle',
+    tooltipKey: 'rounded_rectangle',
     disabled: false,
   },
 ];

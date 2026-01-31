@@ -87,9 +87,9 @@ export const shapeToolbarConfig = {
 
         return renderMenu({
           icon: ShapeIcon(),
-          label: 'Switch shape type',
+          label: t('switch_shape_type'),
           items: ShapeComponentConfig.map(item => ({
-            key: item.tooltip,
+            key: t(item.tooltipKey),
             value: item.name,
             icon:
               shapeStyle === ShapeStyle.General
@@ -124,7 +124,7 @@ export const shapeToolbarConfig = {
         };
 
         return renderMenu({
-          label: 'Style',
+          label: t('shape_style'),
           items: LINE_STYLE_LIST,
           currentValue: shapeStyle === ShapeStyle.Scribbled,
           onPick,

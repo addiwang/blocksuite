@@ -14,6 +14,7 @@ import {
 import { ErrorCode } from '@blocksuite/global/exceptions';
 import type { Bound } from '@blocksuite/global/gfx';
 import { SignalWatcher } from '@blocksuite/global/lit';
+import { t } from '@blocksuite/i18n';
 import type { BlockStdScope } from '@blocksuite/std';
 import { modelContext, stdContext } from '@blocksuite/std';
 import type { BlockModel } from '@blocksuite/store';
@@ -173,7 +174,7 @@ export class EdgelessMindmapMenu extends EdgelessToolbarToolMixin(
       </button>
       <affine-tooltip tip-position="top" .offset=${12}>
         <affine-tooltip-content-with-shortcut
-          data-tip="${'Support import of FreeMind,OPML.'}"
+          data-tip=${t('mindmap_import_support')}
         ></affine-tooltip-content-with-shortcut>
       </affine-tooltip>
     </div>`;
@@ -205,7 +206,7 @@ export class EdgelessMindmapMenu extends EdgelessToolbarToolMixin(
           other: 'failed',
           module: 'toolbar',
         });
-        toast(this.edgeless.host, 'Import failed, please try again');
+        toast(this.edgeless.host, t('mindmap_import_failed_retry'));
         console.error(e);
       })
       .finally(() => {
@@ -303,7 +304,7 @@ export class EdgelessMindmapMenu extends EdgelessToolbarToolMixin(
           </button>
           <affine-tooltip tip-position="top" .offset=${12}>
             <affine-tooltip-content-with-shortcut
-              data-tip="${'Add media'}"
+              data-tip=${t('add_media')}
             ></affine-tooltip-content-with-shortcut>
           </affine-tooltip>
         </div>
@@ -334,7 +335,7 @@ export class EdgelessMindmapMenu extends EdgelessToolbarToolMixin(
           </button>
           <affine-tooltip tip-position="top" .offset=${12}>
             <affine-tooltip-content-with-shortcut
-              data-tip="${'Edgeless Text'}"
+              data-tip=${t('edgeless_text')}
               data-shortcup="${'T'}"
             ></affine-tooltip-content-with-shortcut>
           </affine-tooltip>
@@ -380,7 +381,7 @@ export class EdgelessMindmapMenu extends EdgelessToolbarToolMixin(
               </button>
               <affine-tooltip tip-position="top" .offset=${12}>
                 <affine-tooltip-content-with-shortcut
-                  data-tip="${'Mind Map'}"
+                  data-tip=${t('mindmap_tool')}
                   data-shortcup="${'M'}"
                 ></affine-tooltip-content-with-shortcut>
               </affine-tooltip>

@@ -35,6 +35,7 @@ import {
   TextAlignLeftIcon,
   TextAlignRightIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import type { GfxModel } from '@blocksuite/std/gfx';
 import { signal } from '@preact/signals-core';
 import { html } from 'lit';
@@ -157,8 +158,8 @@ export function createTextActions<
             .contentPadding="${'8px'}"
             .button=${html`
               <editor-icon-button
-                aria-label="Font"
-                .tooltip="${'Font'}"
+                aria-label=${t('font')}
+                .tooltip=${t('font')}
                 .justify="${'space-between'}"
                 .iconContainerWidth="${'40px'}"
               >
@@ -239,7 +240,7 @@ export function createTextActions<
         return html`
           <edgeless-color-picker-button
             class="text-color"
-            .label="${'Text color'}"
+            .label=${t('text_color')}
             .pick=${onPick}
             .color=${color}
             .theme=${theme}
