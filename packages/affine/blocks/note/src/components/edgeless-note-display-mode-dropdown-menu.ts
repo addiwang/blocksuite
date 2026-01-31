@@ -1,18 +1,19 @@
 import { EditorChevronDown } from '@blocksuite/affine-components/toolbar';
 import { NoteDisplayMode } from '@blocksuite/affine-model';
+import { t } from '@blocksuite/i18n';
 import { ShadowlessElement } from '@blocksuite/std';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 
 const DisplayModeMap = {
-  [NoteDisplayMode.DocAndEdgeless]: 'Both',
-  [NoteDisplayMode.EdgelessOnly]: 'Edgeless',
-  [NoteDisplayMode.DocOnly]: 'Page',
+  [NoteDisplayMode.DocAndEdgeless]: 'display_mode_both',
+  [NoteDisplayMode.EdgelessOnly]: 'display_mode_edgeless',
+  [NoteDisplayMode.DocOnly]: 'display_mode_page',
 } as const satisfies Record<NoteDisplayMode, string>;
 
 export class EdgelessNoteDisplayModeDropdownMenu extends ShadowlessElement {
   get mode() {
-    return DisplayModeMap[this.displayMode];
+    return t(DisplayModeMap[this.displayMode]);
   }
 
   select(detail: NoteDisplayMode) {
@@ -23,13 +24,13 @@ export class EdgelessNoteDisplayModeDropdownMenu extends ShadowlessElement {
     const { displayMode, mode } = this;
 
     return html`
-      <span class="display-mode-button-label">Show in</span>
+      <span class="display-mode-button-label">${t('show_in')}</span>
       <editor-menu-button
         .contentPadding=${'8px'}
         .button=${html`
           <editor-icon-button
-            aria-label="Mode"
-            .tooltip="${'Display mode'}"
+            aria-label=${t('display_mode')}
+            .tooltip=${t('display_mode')}
             .justify="${'space-between'}"
             .labelHeight="${'20px'}"
           >

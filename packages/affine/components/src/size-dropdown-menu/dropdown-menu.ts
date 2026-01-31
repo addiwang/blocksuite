@@ -1,6 +1,7 @@
 import { stopPropagation } from '@blocksuite/affine-shared/utils';
 import { SignalWatcher, WithDisposable } from '@blocksuite/global/lit';
 import { DoneIcon } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { PropTypes, requiredProperties } from '@blocksuite/std';
 import type { ReadonlySignal, Signal } from '@preact/signals-core';
 import { css, html, LitElement, type TemplateResult } from 'lit';
@@ -146,17 +147,19 @@ export class SizeDropdownMenu extends SignalWatcher(
       label,
       size$: { value: size },
     } = this;
+    const displayedLabel = label === 'Scale' ? t('scale') : label;
+    const classLabel = label === 'Scale' ? 'scale' : label;
     const isCheckType = type === 'check';
     const placeholder = format?.(Math.trunc(size)) ?? Math.trunc(size);
 
     return html`
       <editor-menu-button
-        class="${`${label.toLowerCase()}-menu`}"
+        class="${`${classLabel.toLowerCase()}-menu`}" 
         .contentPadding="${'8px'}"
         .button=${html`
           <editor-icon-button
-            aria-label="${label}"
-            .tooltip="${label}"
+            aria-label="${displayedLabel}"
+            .tooltip="${displayedLabel}"
             .justify="${'space-between'}"
             .labelHeight="${'20px'}"
             .iconContainerWidth="${icon ? 'unset' : '65px'}"

@@ -2,6 +2,7 @@ import { type NoteBlockModel, NoteDisplayMode } from '@blocksuite/affine-model';
 import { createButtonPopper } from '@blocksuite/affine-shared/utils';
 import { SignalWatcher, WithDisposable } from '@blocksuite/global/lit';
 import { ArrowDownSmallIcon, InvisibleIcon } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { ShadowlessElement } from '@blocksuite/std';
 import type { BlockModel } from '@blocksuite/store';
 import { consume, ContextProvider } from '@lit/context';
@@ -200,9 +201,9 @@ export class OutlineNoteCard extends SignalWatcher(
           }
           <span class=${styles.divider}></span>
           <div class=${styles.displayModeButtonGroup}>
-            <span>Show in</span>
+            <span>${t('show_in')}</span>
             <edgeless-tool-icon-button
-              .tooltip=${this._showPopper$.value ? '' : 'Display Mode'}
+              .tooltip=${this._showPopper$.value ? '' : t('display_mode')}
               .tipPosition=${'left-start'}
               .iconContainerPadding=${0}
               data-testid="display-mode-button"

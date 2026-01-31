@@ -14,17 +14,18 @@ import {
   ParagraphKeymapExtension,
   ParagraphTextKeymapExtension,
 } from './paragraph-keymap.js';
+import { t } from '@blocksuite/i18n';
 
-const placeholders = {
-  text: "Type '/' for commands",
-  h1: 'Heading 1',
-  h2: 'Heading 2',
-  h3: 'Heading 3',
-  h4: 'Heading 4',
-  h5: 'Heading 5',
-  h6: 'Heading 6',
+const placeholderI18nKeys = {
+  text: 'press_for_commands',
+  h1: 'heading_1',
+  h2: 'heading_2',
+  h3: 'heading_3',
+  h4: 'heading_4',
+  h5: 'heading_5',
+  h6: 'heading_6',
   quote: '',
-};
+} as const;
 
 const optionsSchema = z.object({
   getPlaceholder: z.optional(
@@ -50,7 +51,11 @@ export class ParagraphViewExtension extends ViewExtensionProvider<
   ) {
     super.setup(context, options);
     const getPlaceholder =
-      options?.getPlaceholder ?? (model => placeholders[model.props.type]);
+      options?.getPlaceholder ??
+      (model => {
+        const key = placeholderI18nKeys[model.props.type];
+        return key ? t(key) : '';
+      });
 
     context.register([
       FlavourExtension('affine:paragraph'),
