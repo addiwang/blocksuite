@@ -19,6 +19,7 @@ import {
   InsertIntoPageIcon,
   UngroupIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { BlockFlavourIdentifier } from '@blocksuite/std';
 
 import { ungroupCommand } from '../command';
@@ -28,8 +29,8 @@ export const groupToolbarConfig = {
   actions: [
     {
       id: 'a.insert-into-page',
-      label: 'Insert into Page',
-      tooltip: 'Insert into Page',
+      label: t('insert_into_page'),
+      tooltip: t('insert_into_page'),
       icon: InsertIntoPageIcon(),
       when: ctx => ctx.getSurfaceModelsByType(GroupElementModel).length === 1,
       run(ctx) {
@@ -64,12 +65,12 @@ export const groupToolbarConfig = {
           lastNoteId
         );
 
-        toast(ctx.host, 'Group has been inserted into doc');
+        toast(ctx.host, t('group_inserted_into_doc'));
       },
     },
     {
       id: 'b.rename',
-      tooltip: 'Rename',
+      tooltip: t('rename'),
       icon: EditIcon(),
       when: ctx => ctx.getSurfaceModelsByType(GroupElementModel).length === 1,
       run(ctx) {
@@ -84,7 +85,7 @@ export const groupToolbarConfig = {
     },
     {
       id: 'b.ungroup',
-      tooltip: 'Ungroup',
+      tooltip: t('ungroup'),
       icon: UngroupIcon(),
       run(ctx) {
         const models = ctx.getSurfaceModelsByType(GroupElementModel);

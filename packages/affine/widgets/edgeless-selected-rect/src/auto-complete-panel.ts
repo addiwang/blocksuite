@@ -170,7 +170,7 @@ export class EdgelessAutoCompletePanel extends WithDisposable(LitElement) {
     const frameMgr = this.std.get(EdgelessFrameManagerIdentifier);
     const frameIndex = frameMgr.frames.length + 1;
     const props = this.std.get(EditPropsStore).applyLastProps('affine:frame', {
-      title: new Y.Text(`Frame ${frameIndex}`),
+      title: new Y.Text(`${t('edgeless_frame')} ${frameIndex}`),
       xywh: serializeXYWH(...xywh),
       presentationIndex: frameMgr.generatePresentationIndex(),
     });

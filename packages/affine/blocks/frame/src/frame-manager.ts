@@ -4,6 +4,7 @@ import type { FrameBlockModel } from '@blocksuite/affine-model';
 import { EditPropsStore } from '@blocksuite/affine-shared/services';
 import { DisposableGroup } from '@blocksuite/global/disposable';
 import { BlockSuiteError, ErrorCode } from '@blocksuite/global/exceptions';
+import { t } from '@blocksuite/i18n';
 import {
   Bound,
   deserializeXYWH,
@@ -211,7 +212,9 @@ export class EdgelessFrameManager extends GfxExtension {
     const props = this.gfx.std
       .get(EditPropsStore)
       .applyLastProps('affine:frame', {
-        title: new Text(new Y.Text(`Frame ${this.frames.length + 1}`)),
+        title: new Text(
+          new Y.Text(`${t('edgeless_frame')} ${this.frames.length + 1}`)
+        ),
         xywh: bound.serialize(),
         index: this.gfx.layer.generateIndex(true),
         presentationIndex: this.generatePresentationIndex(),

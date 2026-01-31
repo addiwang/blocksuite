@@ -32,6 +32,7 @@ import {
   InsertIntoPageIcon,
   UngroupIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { type BlockComponent, BlockFlavourIdentifier } from '@blocksuite/std';
 import { GfxControllerIdentifier } from '@blocksuite/std/gfx';
 import type { ExtensionType } from '@blocksuite/store';
@@ -50,8 +51,8 @@ const builtinSurfaceToolbarConfig = {
   actions: [
     {
       id: 'a.insert-into-page',
-      label: 'Insert into Page',
-      tooltip: 'Insert into Page',
+      label: t('insert_into_page'),
+      tooltip: t('insert_into_page'),
       icon: InsertIntoPageIcon(),
       when: ctx => ctx.getSurfaceModelsByType(FrameBlockModel).length === 1,
       run(ctx) {
@@ -90,18 +91,18 @@ const builtinSurfaceToolbarConfig = {
         const notification = ctx.std.getOptional(NotificationProvider);
         if (notification) {
           notification.notifyWithUndoAction({
-            title: 'Frame inserted into Page.',
-            message: 'Frame has been inserted into doc',
+            title: t('frame_inserted_into_doc'),
+            message: t('frame_inserted_into_doc'),
             accent: 'success',
           });
         } else {
-          toast(ctx.host, 'Frame has been inserted into doc');
+          toast(ctx.host, t('frame_inserted_into_doc'));
         }
       },
     },
     {
       id: 'b.rename',
-      tooltip: 'Rename',
+      tooltip: t('rename'),
       icon: EditIcon(),
       when: ctx => ctx.getSurfaceModelsByType(FrameBlockModel).length === 1,
       run(ctx) {
@@ -116,7 +117,7 @@ const builtinSurfaceToolbarConfig = {
     },
     {
       id: 'b.ungroup',
-      tooltip: 'Ungroup',
+      tooltip: t('ungroup'),
       icon: UngroupIcon(),
       run(ctx) {
         const models = ctx.getSurfaceModelsByType(FrameBlockModel);
