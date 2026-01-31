@@ -1,5 +1,7 @@
 # BlockSuite
 
+English | [简体中文](./README.zh-CN.md)
+
 <p align="center">
   <picture style="width: 500px">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/toeverything/blocksuite/main/assets/logo-and-name-h.svg" />
@@ -23,6 +25,8 @@
 ---
 
 ## Overview
+
+这是ＢlockSuite的简体中文完全汉化版，支持多语言，由于源有很多硬编码，所以建了分支，功能未变，后续会补一些模板。
 
 > _People who are really serious about editor should make their own framework._
 
