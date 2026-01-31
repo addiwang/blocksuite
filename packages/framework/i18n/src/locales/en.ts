@@ -169,6 +169,7 @@ export default {
     copied_to_clipboard: "Copied to clipboard",
     caption: "Caption",
     download: "Download",
+    template: "Template",
     replace_attachment: "Replace attachment",
     horizontal_style: "Horizontal style",
     vertical_style: "Vertical style",

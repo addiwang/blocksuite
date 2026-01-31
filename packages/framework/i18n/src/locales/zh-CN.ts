@@ -118,6 +118,7 @@ export default {
   copied_to_clipboard: "已复制到剪贴板",
   caption: "图注",
   download: "下载",
+  template: "模板",
   replace_attachment: "替换附件",
   horizontal_style: "水平样式",
   vertical_style: "垂直样式",

@@ -3,6 +3,7 @@ import { ArrowDownSmallIcon } from '@blocksuite/affine-components/icons';
 import { once } from '@blocksuite/affine-shared/utils';
 import { EdgelessToolbarToolMixin } from '@blocksuite/affine-widget-edgeless-toolbar';
 import type { ToolOptionWithType } from '@blocksuite/std/gfx';
+import { t } from '@blocksuite/i18n';
 import {
   arrow,
   autoUpdate,
@@ -200,7 +201,10 @@ export class EdgelessTemplateButton extends EdgelessToolbarToolMixin(
     const { cards, _openedPanel } = this;
     const expanded = _openedPanel !== null;
 
-    return html`<edgeless-toolbar-button @click=${this._togglePanel}>
+    return html`<edgeless-toolbar-button
+      .tooltip=${t('template')}
+      @click=${this._togglePanel}
+    >
       <div class="template-cards ${expanded ? 'expanded' : ''}">
         <div class="arrow-icon">${ArrowDownSmallIcon}</div>
         ${repeat(
