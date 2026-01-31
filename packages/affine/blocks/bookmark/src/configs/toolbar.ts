@@ -42,6 +42,7 @@ import { computed, signal } from '@preact/signals-core';
 import { html } from 'lit';
 import { keyed } from 'lit/directives/keyed.js';
 import * as Y from 'yjs';
+import { t } from '@blocksuite/i18n';
 
 import { BookmarkBlockComponent } from '../bookmark-block';
 
@@ -64,7 +65,7 @@ const previewAction = {
 
 const captionAction = {
   id: 'd.caption',
-  tooltip: 'Caption',
+  tooltip: t('caption'),
   icon: CaptionIcon(),
   run(ctx) {
     const block = ctx.getCurrentBlockByType(BookmarkBlockComponent);

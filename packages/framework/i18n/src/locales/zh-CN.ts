@@ -117,6 +117,7 @@ export default {
   duplicate: "创建副本",
   copied_to_clipboard: "已复制到剪贴板",
   caption: "图注",
+  download: "下载",
   open_this_doc: "打开此文档",
   inline_view: "行内视图",
   card_view: "卡片视图",

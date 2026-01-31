@@ -28,6 +28,7 @@ import {
   ReplaceIcon,
   ResetIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { BlockFlavourIdentifier } from '@blocksuite/std';
 import type { ExtensionType } from '@blocksuite/store';
 import { flip, offset } from '@floating-ui/dom';
@@ -170,7 +171,7 @@ const replaceAction = {
 
 const downloadAction = {
   id: 'd.download',
-  tooltip: 'Download',
+  tooltip: t('download'),
   icon: DownloadIcon(),
   run(ctx) {
     const block = ctx.getCurrentBlockByType(AttachmentBlockComponent);
@@ -186,7 +187,7 @@ const downloadAction = {
 
 const captionAction = {
   id: 'e.caption',
-  tooltip: 'Caption',
+  tooltip: t('caption'),
   icon: CaptionIcon(),
   run(ctx) {
     const block = ctx.getCurrentBlockByType(AttachmentBlockComponent);

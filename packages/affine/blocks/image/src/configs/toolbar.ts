@@ -13,6 +13,7 @@ import {
   DownloadIcon,
   DuplicateIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { BlockFlavourIdentifier } from '@blocksuite/std';
 import type { ExtensionType } from '@blocksuite/store';
 
@@ -29,7 +30,7 @@ const builtinToolbarConfig = {
   actions: [
     {
       id: 'a.download',
-      tooltip: 'Download',
+      tooltip: t('download'),
       icon: DownloadIcon(),
       run(ctx) {
         const block = ctx.getCurrentBlockByType(ImageBlockComponent);
@@ -38,7 +39,7 @@ const builtinToolbarConfig = {
     },
     {
       id: 'b.caption',
-      tooltip: 'Caption',
+      tooltip: t('caption'),
       icon: CaptionIcon(),
       run(ctx) {
         const block = ctx.getCurrentBlockByType(ImageBlockComponent);
@@ -125,7 +126,7 @@ const builtinSurfaceToolbarConfig = {
   actions: [
     {
       id: 'a.download',
-      tooltip: 'Download',
+      tooltip: t('download'),
       icon: DownloadIcon(),
       run(ctx) {
         const block = ctx.getCurrentBlockByType(ImageEdgelessBlockComponent);
@@ -134,7 +135,7 @@ const builtinSurfaceToolbarConfig = {
     },
     {
       id: 'b.caption',
-      tooltip: 'Caption',
+      tooltip: t('caption'),
       icon: CaptionIcon(),
       run(ctx) {
         const block = ctx.getCurrentBlockByType(ImageEdgelessBlockComponent);

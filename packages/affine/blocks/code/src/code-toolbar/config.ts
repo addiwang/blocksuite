@@ -11,6 +11,7 @@ import { CommentProviderIdentifier } from '@blocksuite/affine-shared/services';
 import { isInsidePageEditor } from '@blocksuite/affine-shared/utils';
 import { noop, sleep } from '@blocksuite/global/utils';
 import { CommentIcon, NumberedListIcon } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { BlockSelection } from '@blocksuite/std';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -87,7 +88,7 @@ export const PRIMARY_GROUPS: MenuItemGroup<CodeBlockToolbarContext>[] = [
       },
       {
         type: 'caption',
-        label: 'Caption',
+        label: t('caption'),
         icon: CaptionIcon,
         when: ({ doc }) => !doc.readonly,
         generate: ({ blockComponent }) => {

@@ -168,6 +168,7 @@ export default {
     delete: "Delete",
     copied_to_clipboard: "Copied to clipboard",
     caption: "Caption",
+    download: "Download",
     open_this_doc: "Open this doc",
     inline_view: "Inline view",
     card_view: "Card view",
