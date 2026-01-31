@@ -47,6 +47,7 @@ import {
   LinkedPageIcon,
   ResetIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import type { BlockComponent } from '@blocksuite/std';
 import { GfxBlockElementModel, type GfxModel } from '@blocksuite/std/gfx';
 
@@ -68,7 +69,7 @@ export const moreActions = [
     actions: [
       {
         id: 'a.create-frame',
-        label: 'Frame section',
+        label: t('frame_section'),
         icon: FrameIcon(),
         run(ctx) {
           const frame = ctx.std
@@ -89,7 +90,7 @@ export const moreActions = [
       },
       {
         id: 'b.create-group',
-        label: 'Group section',
+        label: t('group_section'),
         icon: GroupIcon(),
         when(ctx) {
           const models = ctx.getSurfaceModels();
@@ -109,7 +110,7 @@ export const moreActions = [
     actions: [
       {
         id: 'a.bring-to-front',
-        label: 'Bring to Front',
+        label: t('bring_to_front'),
         icon: ArrowUpBigTopIcon(),
         run(ctx) {
           const models = ctx.getSurfaceModels();
@@ -118,7 +119,7 @@ export const moreActions = [
       },
       {
         id: 'b.bring-forward',
-        label: 'Bring Forward',
+        label: t('bring_forward'),
         icon: ArrowUpBigIcon(),
         run(ctx) {
           const models = ctx.getSurfaceModels();
@@ -127,7 +128,7 @@ export const moreActions = [
       },
       {
         id: 'c.send-backward',
-        label: 'Send Backward',
+        label: t('send_backward'),
         icon: ArrowDownBigIcon(),
         run(ctx) {
           const models = ctx.getSurfaceModels();
@@ -136,7 +137,7 @@ export const moreActions = [
       },
       {
         id: 'c.send-to-back',
-        label: 'Send to Back',
+        label: t('send_to_back'),
         icon: ArrowDownBigBottomIcon(),
         run(ctx) {
           const models = ctx.getSurfaceModels();
@@ -153,7 +154,7 @@ export const moreActions = [
     actions: [
       {
         id: 'copy',
-        label: 'Copy',
+        label: t('copy'),
         icon: CopyIcon(),
         run(ctx) {
           const models = ctx.getSurfaceModels();
@@ -169,7 +170,7 @@ export const moreActions = [
       },
       {
         id: 'duplicate',
-        label: 'Duplicate',
+        label: t('duplicate'),
         icon: DuplicateIcon(),
         run(ctx) {
           const models = ctx.getSurfaceModels();
@@ -183,7 +184,7 @@ export const moreActions = [
       },
       {
         id: 'reload',
-        label: 'Reload',
+        label: t('reload'),
         icon: ResetIcon(),
         when(ctx) {
           const models = ctx.getSurfaceModels();
@@ -212,7 +213,7 @@ export const moreActions = [
     actions: [
       {
         id: 'a.turn-into-linked-doc',
-        label: 'Turn into linked doc',
+        label: t('turn_into_linked_doc'),
         icon: LinkedPageIcon(),
         when(ctx) {
           const models = ctx.getSurfaceModels();
@@ -289,7 +290,7 @@ export const moreActions = [
       },
       {
         id: 'b.create-linked-doc',
-        label: 'Create linked doc',
+        label: t('create_linked_doc'),
         icon: LinkedPageIcon(),
         when(ctx) {
           const models = ctx.getSurfaceModels();
@@ -373,7 +374,7 @@ export const moreActions = [
   // Deleting Group
   {
     id: 'e.delete',
-    label: 'Delete',
+    label: t('delete'),
     icon: DeleteIcon(),
     variant: 'destructive',
     run(ctx) {

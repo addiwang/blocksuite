@@ -241,6 +241,7 @@ export default {
     bring_forward: "Bring Forward",
     send_backward: "Send Backward",
     send_to_back: "Send to Back",
+    turn_into_linked_doc: "Turn into linked doc",
     link_description: "The added link will be displayed as a card view.",
     font: "Font",
     font_size: "Font size",
