@@ -41,6 +41,10 @@ export function createTestEditor(store: Store, workspace: Workspace) {
     .get(FeatureFlagService)
     .setFlag('enable_advanced_block_visibility', true);
 
+  store
+    .get(FeatureFlagService)
+    .setFlag('enable_edgeless_scribbled_style', true);
+
   const editor = document.createElement('affine-editor-container');
 
   editor.autofocus = true;
