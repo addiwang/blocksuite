@@ -133,18 +133,20 @@ export class EdgelessShapeMenu extends SignalWatcher(
 
   override render() {
     const { fillColor, shapeStyle, shapeName } = this._props$.value;
+    const enableScribbledStyle = this.edgeless.store
+      .get(FeatureFlagService)
+      .getFlag('enable_edgeless_scribbled_style');
 
     return html`
       <edgeless-slide-menu>
         <div class="menu-content">
           ${
-            // TODO(@fundon): add a flag
             when(
-              false,
+              enableScribbledStyle,
               () => html`
                 <div class="shape-style-container">
                   <edgeless-tool-icon-button
-                    .tooltip=${'General'}
+                    .tooltip=${t('shape_style_general')}
                     .active=${shapeStyle === ShapeStyle.General}
                     .activeMode=${'background'}
                     .iconSize=${'20px'}
@@ -155,7 +157,7 @@ export class EdgelessShapeMenu extends SignalWatcher(
                     ${StyleGeneralIcon()}
                   </edgeless-tool-icon-button>
                   <edgeless-tool-icon-button
-                    .tooltip=${'Scribbled'}
+                    .tooltip=${t('shape_style_scribbled')}
                     .active=${shapeStyle === ShapeStyle.Scribbled}
                     .activeMode=${'background'}
                     .iconSize=${'20px'}

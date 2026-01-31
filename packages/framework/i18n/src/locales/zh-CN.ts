@@ -85,6 +85,8 @@ export default {
   toggle_light_mode: "切换浅色模式",
   toggle_dark_mode: "切换深色模式",
   enter_presentation_mode: "进入演讲模式",
+  shape_style_general: "常规",
+  shape_style_scribbled: "涂鸦",
   text: "文本",
   text_desc: "输入普通文本。",
   heading_1: "标题 1",

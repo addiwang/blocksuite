@@ -135,6 +135,8 @@ export default {
     toggle_light_mode: "Toggle Light Mode",
     toggle_dark_mode: "Toggle Dark Mode",
     enter_presentation_mode: "Enter presentation mode",
+    shape_style_general: "General",
+    shape_style_scribbled: "Scribbled",
     text: "Text",
     text_desc: "Start typing with plain text.",
     heading_1: "Heading 1",
