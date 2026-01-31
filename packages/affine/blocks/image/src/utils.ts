@@ -20,6 +20,7 @@ import {
   withTempBlobData,
 } from '@blocksuite/affine-shared/utils';
 import { Bound, type IVec, Vec } from '@blocksuite/global/gfx';
+import { t } from '@blocksuite/i18n';
 import { BlockSelection, type BlockStdScope } from '@blocksuite/std';
 import { GfxControllerIdentifier } from '@blocksuite/std/gfx';
 import type { BlockModel } from '@blocksuite/store';
@@ -66,18 +67,18 @@ export async function downloadImageBlob(
   const { host, blobUrl, resourceController } = block;
 
   if (!blobUrl) {
-    toast(host, 'Failed to download image!');
+    toast(host, t('download_failed_image'));
     return;
   }
 
   if (resourceController.state$.peek().downloading) {
-    toast(host, 'Download in progress...');
+    toast(host, t('download_in_progress'));
     return;
   }
 
   resourceController.updateState({ downloading: true });
 
-  toast(host, 'Downloading image...');
+  toast(host, t('downloading_image'));
 
   const tmpLink = document.createElement('a');
   const event = new MouseEvent('click');

@@ -8,6 +8,7 @@ import {
 import { ImageSelection } from '@blocksuite/affine-shared/selection';
 import { unsafeCSSVarV2 } from '@blocksuite/affine-shared/theme';
 import { SignalWatcher, WithDisposable } from '@blocksuite/global/lit';
+import { t } from '@blocksuite/i18n';
 import type { BlockComponent, UIEventStateContext } from '@blocksuite/std';
 import {
   BlockSelection,
@@ -224,7 +225,7 @@ export class ImageBlockPageComponent extends SignalWatcher(
 
   private _handleError() {
     this.block.resourceController.updateState({
-      errorMessage: 'Failed to download image!',
+      errorMessage: t('download_failed_image'),
     });
   }
 

@@ -15,6 +15,7 @@ import {
 } from '@blocksuite/affine-shared/services';
 import { formatSize } from '@blocksuite/affine-shared/utils';
 import { Bound, type IVec, Vec } from '@blocksuite/global/gfx';
+import { t } from '@blocksuite/i18n';
 import type { BlockStdScope } from '@blocksuite/std';
 import { GfxControllerIdentifier } from '@blocksuite/std/gfx';
 import type { BlockModel } from '@blocksuite/store';
@@ -42,7 +43,7 @@ export function downloadAttachmentBlob(block: AttachmentBlockComponent) {
   const { host, model, blobUrl, resourceController } = block;
 
   if (resourceController.state$.peek().downloading) {
-    toast(host, 'Download in progress...');
+    toast(host, t('download_in_progress'));
     return;
   }
 
@@ -50,13 +51,13 @@ export function downloadAttachmentBlob(block: AttachmentBlockComponent) {
   const shortName = name.length < 20 ? name : name.slice(0, 20) + '...';
 
   if (!blobUrl) {
-    toast(host, `Failed to download ${shortName}!`);
+    toast(host, t('download_failed_file', { name: shortName }));
     return;
   }
 
   resourceController.updateState({ downloading: true });
 
-  toast(host, `Downloading ${shortName}`);
+  toast(host, t('downloading_file', { name: shortName }));
 
   const tmpLink = document.createElement('a');
   const event = new MouseEvent('click');
@@ -94,7 +95,7 @@ function hasExceeded(
 
   if (exceeded) {
     const size = formatSize(maxFileSize);
-    toast(std.host, `You can only upload files less than ${size}`);
+    toast(std.host, t('upload_file_size_limit', { size }));
   }
 
   return exceeded;

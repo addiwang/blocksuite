@@ -9,6 +9,7 @@ import {
 import { cssVarV2, unsafeCSSVarV2 } from '@blocksuite/affine-shared/theme';
 import { formatSize } from '@blocksuite/affine-shared/utils';
 import { BrokenImageIcon, ImageIcon } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { GfxBlockComponent } from '@blocksuite/std';
 import { GfxViewInteractionExtension } from '@blocksuite/std/gfx';
 import { computed } from '@preact/signals-core';
@@ -92,7 +93,7 @@ export class ImageEdgelessBlockComponent extends GfxBlockComponent<ImageBlockMod
 
   private _handleError() {
     this.resourceController.updateState({
-      errorMessage: 'Failed to download image!',
+      errorMessage: t('download_failed_image'),
     });
   }
 
