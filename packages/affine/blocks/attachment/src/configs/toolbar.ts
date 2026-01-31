@@ -50,7 +50,7 @@ export const attachmentViewDropdownMenu = {
   actions: [
     {
       id: 'card',
-      label: 'Card view',
+      label: t('card_view'),
       run(ctx) {
         const model = ctx.getCurrentModelByType(AttachmentBlockModel);
         if (!model) return;
@@ -71,7 +71,7 @@ export const attachmentViewDropdownMenu = {
     },
     {
       id: 'embed',
-      label: 'Embed view',
+      label: t('embed_view'),
       disabled: ctx => {
         const block = ctx.getCurrentBlockByType(AttachmentBlockComponent);
         return block ? !block.embedded() : true;
@@ -153,7 +153,7 @@ export const attachmentViewDropdownMenu = {
 
 const replaceAction = {
   id: 'c.replace',
-  tooltip: 'Replace attachment',
+  tooltip: t('replace_attachment'),
   icon: ReplaceIcon(),
   disabled(ctx) {
     const block = ctx.getCurrentBlockByType(AttachmentBlockComponent);
@@ -213,8 +213,8 @@ const builtinToolbarConfig = {
 
         return html`
           <editor-icon-button
-            aria-label="Rename"
-            .tooltip="${'Rename'}"
+            aria-label=${t('rename')}
+            .tooltip=${t('rename')}
             @click=${() => {
               ctx.hide();
 
@@ -252,7 +252,7 @@ const builtinToolbarConfig = {
       actions: [
         {
           id: 'copy',
-          label: 'Copy',
+          label: t('copy'),
           icon: CopyIcon(),
           run(ctx) {
             // TODO(@fundon): unify `clone` method
@@ -262,7 +262,7 @@ const builtinToolbarConfig = {
         },
         {
           id: 'duplicate',
-          label: 'Duplicate',
+          label: t('duplicate'),
           icon: DuplicateIcon(),
           run(ctx) {
             const model = ctx.getCurrentModelByType(AttachmentBlockModel);
@@ -282,7 +282,7 @@ const builtinToolbarConfig = {
     {
       placement: ActionPlacement.More,
       id: 'b.refresh',
-      label: 'Reload',
+      label: t('reload'),
       icon: ResetIcon(),
       run(ctx) {
         const block = ctx.getCurrentBlockByType(AttachmentBlockComponent);
@@ -298,7 +298,7 @@ const builtinToolbarConfig = {
     {
       placement: ActionPlacement.More,
       id: 'c.delete',
-      label: 'Delete',
+      label: t('delete'),
       icon: DeleteIcon(),
       variant: 'destructive',
       run(ctx) {
@@ -323,11 +323,11 @@ const builtinSurfaceToolbarConfig = {
       actions: [
         {
           id: 'horizontalThin',
-          label: 'Horizontal style',
+          label: t('horizontal_style'),
         },
         {
           id: 'cubeThick',
-          label: 'Vertical style',
+          label: t('vertical_style'),
         },
       ],
       content(ctx) {

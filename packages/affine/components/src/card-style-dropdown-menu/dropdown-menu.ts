@@ -5,6 +5,7 @@ import {
 } from '@blocksuite/affine-shared/services';
 import { SignalWatcher } from '@blocksuite/global/lit';
 import { PaletteIcon } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { PropTypes, requiredProperties } from '@blocksuite/std';
 import {
   computed,
@@ -77,8 +78,8 @@ export class CardStyleDropdownMenu extends SignalWatcher(LitElement) {
         .contentPadding="${'8px'}"
         .button=${html`
           <editor-icon-button
-            aria-label="Card style"
-            .tooltip="${'Card style'}"
+            aria-label=${t('card_style')}
+            .tooltip=${t('card_style')}
           >
             ${PaletteIcon()}
           </editor-icon-button>

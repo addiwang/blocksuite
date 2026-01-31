@@ -16,6 +16,7 @@ import {
   renderMenu,
 } from '@blocksuite/affine-widget-edgeless-toolbar';
 import { RadiantIcon, RightLayoutIcon, StyleIcon } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { BlockFlavourIdentifier } from '@blocksuite/std';
 
 import {
@@ -46,19 +47,19 @@ const MINDMAP_STYLE_LIST = [
 
 const MINDMAP_LAYOUT_LIST = [
   {
-    key: 'Left',
+    key: 'layout_left',
     value: LayoutType.LEFT,
     icon: RightLayoutIcon({
       style: 'transform: rotate(0.5turn); transform-origin: center;',
     }),
   },
   {
-    key: 'Radial',
+    key: 'layout_radial',
     value: LayoutType.BALANCE,
     icon: RadiantIcon(),
   },
   {
-    key: 'Right',
+    key: 'layout_right',
     value: LayoutType.RIGHT,
     icon: RightLayoutIcon(),
   },
@@ -77,7 +78,7 @@ export const createMindmapStyleActionMenu = (
   };
 
   return renderMenu({
-    label: 'Style',
+    label: t('shape_style'),
     icon: StyleIcon(),
     items: MINDMAP_STYLE_LIST,
     currentValue: style,
@@ -100,8 +101,11 @@ export const createMindmapLayoutActionMenu = (
   };
 
   return renderMenu({
-    label: 'Layout',
-    items: MINDMAP_LAYOUT_LIST,
+    label: t('layout'),
+    items: MINDMAP_LAYOUT_LIST.map(item => ({
+      ...item,
+      key: t(item.key),
+    })),
     currentValue: layoutType,
     onPick,
   });
