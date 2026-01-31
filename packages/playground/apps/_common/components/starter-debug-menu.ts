@@ -63,6 +63,7 @@ import {
 } from '@blocksuite/affine/widgets/linked-doc';
 import { NotionHtmlAdapter } from '@blocksuite/affine-shared/adapters';
 import type { AffineTextAttributes } from '@blocksuite/affine-shared/types';
+import { t } from '@blocksuite/i18n';
 import { TestAffineEditorContainer } from '@blocksuite/integration-test';
 import type { SlDropdown } from '@shoelace-style/shoelace';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
@@ -363,12 +364,12 @@ export class StarterDebugMenu extends ShadowlessElement {
         }
       }
       if (!this.editor.host) return;
-      toast(
-        this.editor.host,
-        `Successfully imported ${pageIds.length} HTML files.`
-      );
+      toast(this.editor.host, t('import_html_success', { count: pageIds.length }));
     } catch (error) {
       console.error(' Import HTML files failed:', error);
+      if (this.editor.host) {
+        toast(this.editor.host, t('import_html_failed'));
+      }
     }
   }
 
@@ -383,12 +384,12 @@ export class StarterDebugMenu extends ShadowlessElement {
         extensions: this._getStoreManager().get('store'),
       });
       if (!this.editor.host) return;
-      toast(
-        this.editor.host,
-        `Successfully imported ${result.length} HTML files.`
-      );
+      toast(this.editor.host, t('import_html_success', { count: result.length }));
     } catch (error) {
       console.error('Import HTML zip files failed:', error);
+      if (this.editor.host) {
+        toast(this.editor.host, t('import_html_zip_failed'));
+      }
     }
   }
 
@@ -416,10 +417,13 @@ export class StarterDebugMenu extends ShadowlessElement {
       if (!this.editor.host) return;
       toast(
         this.editor.host,
-        `Successfully imported ${pageIds.length} markdown files.`
+        t('import_markdown_success', { count: pageIds.length })
       );
     } catch (error) {
       console.error(' Import markdown files failed:', error);
+      if (this.editor.host) {
+        toast(this.editor.host, t('import_markdown_failed'));
+      }
     }
   }
 
@@ -436,10 +440,13 @@ export class StarterDebugMenu extends ShadowlessElement {
       if (!this.editor.host) return;
       toast(
         this.editor.host,
-        `Successfully imported ${result.length} markdown files.`
+        t('import_markdown_success', { count: result.length })
       );
     } catch (error) {
       console.error('Import markdown zip files failed:', error);
+      if (this.editor.host) {
+        toast(this.editor.host, t('import_markdown_zip_failed'));
+      }
     }
   }
 
@@ -457,6 +464,9 @@ export class StarterDebugMenu extends ShadowlessElement {
       });
     } catch (error) {
       console.error('Failed to import Notion HTML:', error);
+      if (this.editor.host) {
+        toast(this.editor.host, t('import_notion_html_failed'));
+      }
     }
   }
 
@@ -473,10 +483,13 @@ export class StarterDebugMenu extends ShadowlessElement {
       if (!this.editor.host) return;
       toast(
         this.editor.host,
-        `Successfully imported ${result.pageIds.length} Notion HTML pages.`
+        t('import_notion_html_zip_success', { count: result.pageIds.length })
       );
     } catch (error) {
       console.error('Failed to import Notion HTML Zip:', error);
+      if (this.editor.host) {
+        toast(this.editor.host, t('import_notion_html_zip_failed'));
+      }
     }
   }
 
@@ -783,25 +796,28 @@ export class StarterDebugMenu extends ShadowlessElement {
       <div class="debug-menu default">
         <div class="default-toolbar">
           <!-- undo/redo group -->
-          <sl-button-group label="History">
+          <sl-button-group label=${t('history')}>
             <!-- undo -->
-            <sl-tooltip content="Undo" placement="bottom" hoist>
+            <sl-tooltip content=${t('undo')} placement="bottom" hoist>
               <sl-button
                 size="small"
                 .disabled="${!this._canUndo}"
                 @click="${() => this.doc.undo()}"
               >
-                <sl-icon name="arrow-counterclockwise" label="Undo"></sl-icon>
+                <sl-icon
+                  name="arrow-counterclockwise"
+                  label=${t('undo')}
+                ></sl-icon>
               </sl-button>
             </sl-tooltip>
             <!-- redo -->
-            <sl-tooltip content="Redo" placement="bottom" hoist>
+            <sl-tooltip content=${t('redo')} placement="bottom" hoist>
               <sl-button
                 size="small"
                 .disabled="${!this._canRedo}"
                 @click="${() => this.doc.redo()}"
               >
-                <sl-icon name="arrow-clockwise" label="Redo"></sl-icon>
+                <sl-icon name="arrow-clockwise" label=${t('redo')}></sl-icon>
               </sl-button>
             </sl-tooltip>
           </sl-button-group>
@@ -809,122 +825,122 @@ export class StarterDebugMenu extends ShadowlessElement {
           <!-- test operations -->
           <sl-dropdown id="test-operations-dropdown" placement="bottom" hoist>
             <sl-button size="small" slot="trigger" caret>
-              Test Operations
+              ${t('test_operations')}
             </sl-button>
             <sl-menu>
-              <sl-menu-item @click="${this._print}">Print</sl-menu-item>
+              <sl-menu-item @click="${this._print}">${t('print')}</sl-menu-item>
               <sl-menu-item>
-                Export
+                ${t('export')}
                 <sl-menu slot="submenu">
                   <sl-menu-item @click="${this._exportMarkDown}">
-                    Export Markdown
+                    ${t('export_markdown')}
                   </sl-menu-item>
                   <sl-menu-item @click="${this._exportHtml}">
-                    Export HTML
+                    ${t('export_html')}
                   </sl-menu-item>
                   <sl-menu-item @click="${this._exportPlainText}">
-                    Export Plain Text
+                    ${t('export_plain_text')}
                   </sl-menu-item>
                   <sl-menu-item @click="${this._exportPdf}">
-                    Export PDF
+                    ${t('export_pdf')}
                   </sl-menu-item>
                   <sl-menu-item @click="${this._exportPng}">
-                    Export PNG
+                    ${t('export_png')}
                   </sl-menu-item>
                   <sl-menu-item @click="${this._exportSnapshot}">
-                    Export Snapshot
+                    ${t('export_snapshot')}
                   </sl-menu-item>
                 </sl-menu>
               </sl-menu-item>
               <sl-menu-item>
-                Import
+                ${t('import')}
                 <sl-menu slot="submenu">
                   <sl-menu-item @click="${this._importSnapshot}">
-                    Import Snapshot
+                    ${t('import_snapshot')}
                   </sl-menu-item>
                   <sl-menu-item>
-                    Import Notion HTML
+                    ${t('import_notion_html')}
                     <sl-menu slot="submenu">
                       <sl-menu-item @click="${this._importNotionHTML}">
-                        Single Notion HTML Page
+                        ${t('single_notion_html_page')}
                       </sl-menu-item>
                       <sl-menu-item @click="${this._importNotionHTMLZip}">
-                        Notion HTML Zip
+                        ${t('notion_html_zip')}
                       </sl-menu-item>
                     </sl-menu>
                   </sl-menu-item>
                   <sl-menu-item>
-                    Import Markdown
+                    ${t('import_markdown')}
                     <sl-menu slot="submenu">
                       <sl-menu-item @click="${this._importMarkdown}">
-                        Markdown Files
+                        ${t('markdown_files')}
                       </sl-menu-item>
                       <sl-menu-item @click="${this._importMarkdownZip}">
-                        Markdown Zip
+                        ${t('markdown_zip')}
                       </sl-menu-item>
                     </sl-menu>
                   </sl-menu-item>
                   <sl-menu-item>
-                    Import HTML
+                    ${t('import_html')}
                     <sl-menu slot="submenu">
                       <sl-menu-item @click="${this._importHTML}">
-                        HTML Files
+                        ${t('html_files')}
                       </sl-menu-item>
                       <sl-menu-item @click="${this._importHTMLZip}">
-                        HTML Zip
+                        ${t('html_zip')}
                       </sl-menu-item>
                     </sl-menu>
                   </sl-menu-item>
                 </sl-menu>
               </sl-menu-item>
               <sl-menu-item @click="${this._toggleStyleDebugMenu}">
-                Toggle CSS Debug Menu
+                ${t('toggle_css_debug_menu')}
               </sl-menu-item>
               <sl-menu-item @click="${this._toggleReadonly}">
-                Toggle Readonly
+                ${t('toggle_readonly')}
               </sl-menu-item>
               <sl-menu-item @click="${this._shareSelection}">
-                Share Selection
+                ${t('share_selection')}
               </sl-menu-item>
               <sl-menu-item @click="${this._switchOffsetMode}">
-                Switch Offset Mode
+                ${t('switch_offset_mode')}
               </sl-menu-item>
               <sl-menu-item @click="${this._toggleOutlinePanel}">
-                Toggle Outline Panel
+                ${t('toggle_outline_panel')}
               </sl-menu-item>
               <sl-menu-item @click="${this._enableOutlineViewer}">
-                Enable Outline Viewer
+                ${t('enable_outline_viewer')}
               </sl-menu-item>
               <sl-menu-item @click="${this._toggleFramePanel}">
-                Toggle Frame Panel
+                ${t('toggle_frame_panel')}
               </sl-menu-item>
               <sl-menu-item @click="${this._toggleCommentPanel}">
-                Toggle Comment Panel
+                ${t('toggle_comment_panel')}
               </sl-menu-item>
-              <sl-menu-item @click="${this._addNote}"> Add Note </sl-menu-item>
+              <sl-menu-item @click="${this._addNote}">${t('add_note')}</sl-menu-item>
               <sl-menu-item @click="${this._toggleMultipleEditors}">
-                Toggle Multiple Editors
+                ${t('toggle_multiple_editors')}
               </sl-menu-item>
               <sl-menu-item @click="${this._toggleAdapterPanel}">
-                Toggle Adapter Panel
+                ${t('toggle_adapter_panel')}
               </sl-menu-item>
             </sl-menu>
           </sl-dropdown>
 
-          <sl-tooltip content="Switch Editor" placement="bottom" hoist>
+          <sl-tooltip content=${t('switch_editor')} placement="bottom" hoist>
             <sl-button size="small" @click="${this._switchEditorMode}">
               <sl-icon name="repeat"></sl-icon>
             </sl-button>
           </sl-tooltip>
 
-          <sl-tooltip content="Clear Site Data" placement="bottom" hoist>
+          <sl-tooltip content=${t('clear_site_data')} placement="bottom" hoist>
             <sl-button size="small" @click="${this._clearSiteData}">
               <sl-icon name="trash"></sl-icon>
             </sl-button>
           </sl-tooltip>
 
           <sl-tooltip
-            content="Toggle ${this._dark ? 'Light' : 'Dark'} Mode"
+            content=${t(this._dark ? 'toggle_light_mode' : 'toggle_dark_mode')}
             placement="bottom"
             hoist
           >
@@ -936,7 +952,7 @@ export class StarterDebugMenu extends ShadowlessElement {
           </sl-tooltip>
 
           <sl-tooltip
-            content="Enter presentation mode"
+            content=${t('enter_presentation_mode')}
             placement="bottom"
             hoist
           >
@@ -951,7 +967,7 @@ export class StarterDebugMenu extends ShadowlessElement {
             @click="${this._toggleDocsPanel}"
             data-docs-panel-toggle
           >
-            Docs
+            ${t('docs')}
           </sl-button>
         </div>
       </div>
