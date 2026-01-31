@@ -48,25 +48,26 @@ import {
 
 const FONT_WEIGHT_LIST = [
   {
-    key: 'Light',
+    key: 'font_light',
     value: FontWeight.Light,
   },
   {
-    key: 'Regular',
+    key: 'font_regular',
     value: FontWeight.Regular,
   },
   {
-    key: 'Semibold',
+    key: 'format_bold',
     value: FontWeight.SemiBold,
   },
 ] as const satisfies MenuItem<FontWeight>[];
 
 const FONT_STYLE_LIST = [
   {
+    key: 'font_normal',
     value: FontStyle.Normal,
   },
   {
-    key: 'Italic',
+    key: 'font_italic',
     value: FontStyle.Italic,
   },
 ] as const satisfies MenuItem<FontStyle>[];
@@ -82,17 +83,17 @@ const FONT_SIZE_LIST = [
 
 const TEXT_ALIGN_LIST = [
   {
-    key: 'Left',
+    key: 'align_left',
     value: TextAlign.Left,
     icon: TextAlignLeftIcon(),
   },
   {
-    key: 'Center',
+    key: 'align_center',
     value: TextAlign.Center,
     icon: TextAlignCenterIcon(),
   },
   {
-    key: 'Right',
+    key: 'align_right',
     value: TextAlign.Right,
     icon: TextAlignRightIcon(),
   },
@@ -290,20 +291,20 @@ export function createTextActions<
             .contentPadding="${'8px'}"
             .button=${html`
               <editor-icon-button
-                aria-label="Font style"
-                .tooltip="${'Font style'}"
+                aria-label=${t('font_style')}
+                .tooltip=${t('font_style')}
                 .justify="${'space-between'}"
                 .iconContainerWidth="${'90px'}"
                 .disabled=${disabled}
               >
                 <span class="label ellipsis">
                   ${renderCurrentMenuItemWith(
-                    FONT_WEIGHT_LIST,
+                    FONT_WEIGHT_LIST.map(item => ({ ...item, key: t(item.key) })),
                     fontWeight,
                     'key'
                   )}
                   ${renderCurrentMenuItemWith(
-                    FONT_STYLE_LIST,
+                    FONT_STYLE_LIST.map(item => ({ ...item, key: t(item.key) })),
                     fontStyle,
                     'key'
                   )}
@@ -352,7 +353,7 @@ export function createTextActions<
 
         return html`<affine-size-dropdown-menu
           @select=${onPick}
-          .label="${'Font size'}"
+          .label=${t('font_size')}
           .sizes=${FONT_SIZE_LIST}
           .size$=${fontSize$}
         ></affine-size-dropdown-menu>`;
@@ -379,8 +380,8 @@ export function createTextActions<
         };
 
         return renderMenu({
-          label: 'Alignment',
-          items: TEXT_ALIGN_LIST,
+          label: t('alignment'),
+          items: TEXT_ALIGN_LIST.map(item => ({ ...item, key: t(item.key) })),
           currentValue: textAlign,
           onPick,
         });
