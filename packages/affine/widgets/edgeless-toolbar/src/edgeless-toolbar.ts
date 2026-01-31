@@ -23,6 +23,7 @@ import {
   ArrowRightSmallIcon,
   MoreHorizontalIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { WidgetComponent, WidgetViewExtension } from '@blocksuite/std';
 import { GfxControllerIdentifier } from '@blocksuite/std/gfx';
 import { autoPlacement, offset } from '@floating-ui/dom';
@@ -529,7 +530,7 @@ export class EdgelessToolbarWidget extends WidgetComponent<RootBlockModel> {
         >
           ${MoreHorizontalIcon({ width: '20px', height: '20px' })}
           <affine-tooltip tip-position="top" .offset=${25}>
-            More Tools
+            ${t('more_tools')}
           </affine-tooltip>
         </icon-button>
       </div>

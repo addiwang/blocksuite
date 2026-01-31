@@ -32,6 +32,7 @@
     "@blocksuite/affine-shared": "workspace:*",
     "@blocksuite/data-view": "workspace:*",
     "@blocksuite/global": "workspace:*",
+    "@blocksuite/i18n": "workspace:*",
     "@blocksuite/icons": "^2.2.12",
     "@blocksuite/std": "workspace:*",
     "@blocksuite/store": "workspace:*",

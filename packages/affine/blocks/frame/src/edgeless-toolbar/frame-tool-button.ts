@@ -1,4 +1,5 @@
 import { QuickToolMixin } from '@blocksuite/affine-widget-edgeless-toolbar';
+import { t } from '@blocksuite/i18n';
 import { FrameIcon } from '@blocksuite/icons/lit';
 import { css, html, LitElement } from 'lit';
 
@@ -28,7 +29,7 @@ export class EdgelessFrameToolButton extends QuickToolMixin(LitElement) {
         .tooltip=${this.popper
           ? ''
           : html`<affine-tooltip-content-with-shortcut
-              data-tip="${'Frame'}"
+              data-tip="${t('frame_tool')}"
               data-shortcut="${'F'}"
             ></affine-tooltip-content-with-shortcut>`}
         .tooltipOffset=${17}

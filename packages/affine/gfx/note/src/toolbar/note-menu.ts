@@ -11,6 +11,7 @@ import {
 } from '@blocksuite/affine-shared/utils';
 import { EdgelessToolbarToolMixin } from '@blocksuite/affine-widget-edgeless-toolbar';
 import { AttachmentIcon, ImageIcon, LinkIcon } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import type { ToolOptions } from '@blocksuite/std/gfx';
 import { effect } from '@preact/signals-core';
 import { css, html, LitElement } from 'lit';
@@ -115,7 +116,7 @@ export class EdgelessNoteMenu extends EdgelessToolbarToolMixin(LitElement) {
           <div class="button-group-container">
             <edgeless-tool-icon-button
               .activeMode=${'background'}
-              .tooltip=${'Image'}
+              .tooltip=${t('edgeless_image')}
               @click=${this._addImages}
               .disabled=${this._imageLoading}
             >
@@ -125,7 +126,7 @@ export class EdgelessNoteMenu extends EdgelessToolbarToolMixin(LitElement) {
             <edgeless-tool-icon-button
               .activeMode=${'background'}
               .tooltip=${html`<affine-tooltip-content-with-shortcut
-                data-tip="${'Link'}"
+                data-tip="${t('edgeless_link')}"
                 data-shortcut="${'@'}"
               ></affine-tooltip-content-with-shortcut>`}
               @click=${() => {
@@ -137,7 +138,7 @@ export class EdgelessNoteMenu extends EdgelessToolbarToolMixin(LitElement) {
 
             <edgeless-tool-icon-button
               .activeMode=${'background'}
-              .tooltip=${'File'}
+              .tooltip=${t('edgeless_file')}
               @click=${async () => {
                 const file = await openSingleFileWith();
                 if (!file) return;

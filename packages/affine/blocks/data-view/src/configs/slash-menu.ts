@@ -1,6 +1,7 @@
 import { FeatureFlagService } from '@blocksuite/affine-shared/services';
 import { isInsideBlockByFlavour } from '@blocksuite/affine-shared/utils';
 import { type SlashMenuConfig } from '@blocksuite/affine-widget-slash-menu';
+import { t } from '@blocksuite/i18n';
 import { DatabaseTableViewIcon } from '@blocksuite/icons/lit';
 
 import type { DataViewBlockComponent } from '../data-view-block';
@@ -12,12 +13,12 @@ export const dataViewSlashMenuConfig: SlashMenuConfig = {
   },
   items: [
     {
-      name: 'Todo',
+      name: t('todo_list'),
       searchAlias: ['todo view'],
       icon: DatabaseTableViewIcon(),
       tooltip: {
         figure: ToDoListTooltip,
-        caption: 'To-do List',
+        caption: t('todo_list'),
       },
       group: '7_Database@1',
       when: ({ model, std }) =>

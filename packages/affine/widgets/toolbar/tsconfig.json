@@ -5,16 +5,39 @@
     "outDir": "./dist",
     "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo"
   },
-  "include": ["./src"],
+  "include": [
+    "./src"
+  ],
   "references": [
-    { "path": "../../blocks/database" },
-    { "path": "../../blocks/surface" },
-    { "path": "../../blocks/table" },
-    { "path": "../../components" },
-    { "path": "../../ext-loader" },
-    { "path": "../../model" },
-    { "path": "../../shared" },
-    { "path": "../../../framework/global" },
-    { "path": "../../../framework/std" }
+    {
+      "path": "../../blocks/database"
+    },
+    {
+      "path": "../../blocks/surface"
+    },
+    {
+      "path": "../../blocks/table"
+    },
+    {
+      "path": "../../components"
+    },
+    {
+      "path": "../../ext-loader"
+    },
+    {
+      "path": "../../model"
+    },
+    {
+      "path": "../../shared"
+    },
+    {
+      "path": "../../../framework/global"
+    },
+    {
+      "path": "../../../framework/i18n"
+    },
+    {
+      "path": "../../../framework/std"
+    }
   ]
 }

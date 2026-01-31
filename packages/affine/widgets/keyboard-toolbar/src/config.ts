@@ -96,6 +96,7 @@ import {
   YesterdayIcon,
   YoutubeDuotoneIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import {
   type BlockComponent,
   type BlockStdScope,
@@ -359,10 +360,10 @@ const pageToolGroup: KeyboardToolPanelGroup = {
 };
 
 const contentMediaToolGroup: KeyboardToolPanelGroup = {
-  name: 'Content & Media',
+  name: t('content_and_media'),
   items: [
     {
-      name: 'Image',
+      name: t('edgeless_image'),
       icon: ImageIcon(),
       showWhen: ({ std }) =>
         std.store.schema.flavourSchemaMap.has('affine:image'),
@@ -375,7 +376,7 @@ const contentMediaToolGroup: KeyboardToolPanelGroup = {
       },
     },
     {
-      name: 'Link',
+      name: t('edgeless_link'),
       icon: LinkIcon(),
       showWhen: ({ std }) =>
         std.store.schema.flavourSchemaMap.has('affine:bookmark'),
@@ -392,8 +393,8 @@ const contentMediaToolGroup: KeyboardToolPanelGroup = {
         const index = parentModel.children.indexOf(model) + 1;
         await toggleEmbedCardCreateModal(
           std.host,
-          'Links',
-          'The added link will be displayed as a card view.',
+          t('edgeless_link'),
+          t('link_description'),
           { mode: 'page', parentModel, index },
           ({ mode }) => {
             if (mode === 'edgeless') {
@@ -408,7 +409,7 @@ const contentMediaToolGroup: KeyboardToolPanelGroup = {
       },
     },
     {
-      name: 'Attachment',
+      name: t('edgeless_attachment'),
       icon: AttachmentIcon(),
       showWhen: () => false,
       action: async ({ std }) => {
@@ -869,7 +870,7 @@ const textStyleToolItems: KeyboardToolbarItem[] = [
     },
   },
   {
-    name: 'Link',
+    name: t('edgeless_link'),
     icon: LinkIcon(),
     background: ({ std }) => {
       const [_, { textAttributes }] = std.command.exec(getTextAttributes);
@@ -1017,7 +1018,7 @@ export const defaultKeyboardToolbarConfig: KeyboardToolbarConfig = {
     // { icon: AiIcon(iconStyle) },
     textSubToolbarConfig,
     {
-      name: 'Image',
+      name: t('edgeless_image'),
       icon: ImageIcon(),
       showWhen: ({ std }) =>
         std.store.schema.flavourSchemaMap.has('affine:image'),
@@ -1030,7 +1031,7 @@ export const defaultKeyboardToolbarConfig: KeyboardToolbarConfig = {
       },
     },
     {
-      name: 'Attachment',
+      name: t('edgeless_attachment'),
       icon: AttachmentIcon(),
       showWhen: () => false,
       action: async ({ std }) => {

@@ -4,6 +4,7 @@ import {
 } from '@blocksuite/affine-shared/services';
 import { isValidUrl, stopPropagation } from '@blocksuite/affine-shared/utils';
 import { SignalWatcher, WithDisposable } from '@blocksuite/global/lit';
+import { t } from '@blocksuite/i18n';
 import type { EditorHost } from '@blocksuite/std';
 import { ShadowlessElement } from '@blocksuite/std';
 import { GfxControllerIdentifier } from '@blocksuite/std/gfx';
@@ -124,7 +125,7 @@ export class EmbedCardCreateModal extends SignalWatcher(
             class="embed-card-modal-input link"
             id="card-description"
             type="text"
-            placeholder="Input in https://..."
+            placeholder=${t('input_url_placeholder')}
             value=${this._linkInputValue}
             @input=${this._handleInput}
           />
@@ -139,7 +140,7 @@ export class EmbedCardCreateModal extends SignalWatcher(
             ?disabled=${!isValidUrl(this._linkInputValue)}
             @click=${this._onConfirm}
           >
-            Confirm
+            ${t('confirm')}
           </button>
         </div>
       </div>

@@ -1,0 +1,21 @@
+{
+    "name": "@blocksuite/i18n",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "build": "tsc"
+    },
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "author": "toeverything",
+    "license": "MIT",
+    "dependencies": {
+        "@blocksuite/global": "workspace:*",
+        "@preact/signals-core": "^1.8.0",
+        "lit": "^3.2.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.5"
+    }
+}

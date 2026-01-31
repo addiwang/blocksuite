@@ -11,6 +11,7 @@ import {
   type ToolbarPlacement,
 } from '@blocksuite/affine-shared/services';
 import { nextTick } from '@blocksuite/global/utils';
+import { t } from '@blocksuite/i18n';
 import { MoreVerticalIcon } from '@blocksuite/icons/lit';
 import type {
   AutoUpdateOptions,
@@ -66,41 +67,41 @@ export function autoUpdatePosition(
   const offsetY = offsetTop + (hasSurfaceScope ? 2 : 0);
   const config: Partial<ComputePositionConfig> = isInner
     ? {
-        placement: 'top-start',
-        middleware: [
-          offset(({ rects }) => -rects.floating.height),
-          size({
-            apply: ({ elements }) => {
-              const { width } = elements.reference.getBoundingClientRect();
-              elements.floating.style.width = `${width}px`;
-            },
-          }),
-        ],
-      }
+      placement: 'top-start',
+      middleware: [
+        offset(({ rects }) => -rects.floating.height),
+        size({
+          apply: ({ elements }) => {
+            const { width } = elements.reference.getBoundingClientRect();
+            elements.floating.style.width = `${width}px`;
+          },
+        }),
+      ],
+    }
     : {
-        placement,
-        middleware: [
-          offset(10 + offsetY),
-          size({
-            apply: ({ elements }) => {
-              elements.floating.style.width = 'fit-content';
-            },
-          }),
-          isInline ? inline() : undefined,
-          shift(state => ({
-            padding: {
-              top: 10,
-              right: 10,
-              bottom: 150,
-              left: 10,
-            },
-            crossAxis: state.placement.includes('bottom'),
-            limiter: limitShift(),
-          })),
-          flip({ padding: 10 }),
-          hide(),
-        ],
-      };
+      placement,
+      middleware: [
+        offset(10 + offsetY),
+        size({
+          apply: ({ elements }) => {
+            elements.floating.style.width = 'fit-content';
+          },
+        }),
+        isInline ? inline() : undefined,
+        shift(state => ({
+          padding: {
+            top: 10,
+            right: 10,
+            bottom: 150,
+            left: 10,
+          },
+          crossAxis: state.placement.includes('bottom'),
+          limiter: limitShift(),
+        })),
+        flip({ padding: 10 }),
+        hide(),
+      ],
+    };
   const update = async () => {
     await Promise.race([
       new Promise(resolve => {
@@ -268,12 +269,12 @@ export function renderToolbar(
           `${flavour}:${key}`,
           html`
             <editor-menu-button
-              aria-label="More menu"
+              aria-label="${t('more')}"
               .contentPadding="${'8px'}"
               .button=${html`
                 <editor-icon-button
-                  aria-label="More"
-                  .tooltip="${'More'}"
+                  aria-label="${t('more')}"
+                  .tooltip="${t('more')}"
                   .iconContainerPadding=${innerToolbar ? 4 : 2}
                   .iconSize=${innerToolbar ? '16px' : undefined}
                 >
@@ -392,8 +393,8 @@ function renderActionItem(action: ToolbarAction, context: ToolbarContext) {
     >
       ${action.icon}
       ${action.showLabel && action.label
-        ? html`<span class="label">${action.label}</span>`
-        : null}
+      ? html`<span class="label">${action.label}</span>`
+      : null}
     </editor-icon-button>
   `;
 }

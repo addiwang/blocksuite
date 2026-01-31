@@ -59,6 +59,7 @@ import {
   stdContext,
 } from '@blocksuite/std';
 import { GfxControllerIdentifier } from '@blocksuite/std/gfx';
+import { t } from '@blocksuite/i18n';
 import { consume } from '@lit/context';
 import { baseTheme } from '@toeverything/theme';
 import { css, html, LitElement, nothing, unsafeCSS } from 'lit';
@@ -622,7 +623,7 @@ export class EdgelessAutoCompletePanel extends WithDisposable(LitElement) {
       ${shapeButtons}
 
       <edgeless-tool-icon-button
-        .tooltip=${'Text'}
+        .tooltip=${t('edgeless_text')}
         .iconSize=${'20px'}
         @pointerenter=${() => this._showOverlay('text')}
         @pointerleave=${() => this._removeOverlay()}
@@ -631,7 +632,7 @@ export class EdgelessAutoCompletePanel extends WithDisposable(LitElement) {
         ${FontFamilyIcon}
       </edgeless-tool-icon-button>
       <edgeless-tool-icon-button
-        .tooltip=${'Note'}
+        .tooltip=${t('edgeless_note')}
         .iconSize=${'20px'}
         @pointerenter=${() => this._showOverlay('note')}
         @pointerleave=${() => this._removeOverlay()}
@@ -640,7 +641,7 @@ export class EdgelessAutoCompletePanel extends WithDisposable(LitElement) {
         ${PageIcon()}
       </edgeless-tool-icon-button>
       <edgeless-tool-icon-button
-        .tooltip=${'Frame'}
+        .tooltip=${t('edgeless_frame')}
         .iconSize=${'20px'}
         @pointerenter=${() => this._showOverlay('frame')}
         @pointerleave=${() => this._removeOverlay()}
@@ -656,7 +657,7 @@ export class EdgelessAutoCompletePanel extends WithDisposable(LitElement) {
         @pointerleave=${() => this._removeOverlay()}
         @click=${() => this._autoComplete(currentSourceType)}
       >
-        <div class="row-button">Add a same object</div>
+        <div class="row-button">${t('add_same_object')}</div>
       </edgeless-tool-icon-button>
     </div>`;
   }

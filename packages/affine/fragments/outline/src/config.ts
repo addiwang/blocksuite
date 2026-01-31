@@ -19,6 +19,7 @@ import {
   QuoteIcon,
   TextIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import type { EditorHost } from '@blocksuite/std';
 import { createContext } from '@lit/context';
 import type { Signal } from '@preact/signals-core';
@@ -58,26 +59,26 @@ const paragraphPlaceholderMap: Record<
   ParagraphBlockModel['props']['type'],
   string
 > = {
-  quote: 'Quote',
-  text: 'Text Block',
-  h1: 'Heading 1',
-  h2: 'Heading 2',
-  h3: 'Heading 3',
-  h4: 'Heading 4',
-  h5: 'Heading 5',
-  h6: 'Heading 6',
+  quote: t('quote'),
+  text: t('text'),
+  h1: t('heading_1'),
+  h2: t('heading_2'),
+  h3: t('heading_3'),
+  h4: t('heading_4'),
+  h5: t('heading_5'),
+  h6: t('heading_6'),
 };
 
 export const placeholderMap = {
-  code: 'Code Block',
-  bulleted: 'Bulleted List',
-  numbered: 'Numbered List',
-  toggle: 'Toggle List',
-  todo: 'Todo',
-  bookmark: 'Bookmark',
-  image: 'Image',
-  database: 'Database',
-  attachment: 'Attachment',
+  code: t('code_block'),
+  bulleted: t('bulleted_list'),
+  numbered: t('numbered_list'),
+  toggle: t('toggle_list'),
+  todo: t('todo_list'),
+  bookmark: t('bookmark_block'),
+  image: t('image_block'),
+  database: t('database_block'),
+  attachment: t('attachment_block'),
   ...paragraphPlaceholderMap,
 };
 

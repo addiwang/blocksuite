@@ -1,5 +1,6 @@
 import { EdgelessLegacySlotIdentifier } from '@blocksuite/affine-block-surface';
 import { stopPropagation } from '@blocksuite/affine-shared/utils';
+import { t } from '@blocksuite/i18n';
 import { WithDisposable } from '@blocksuite/global/lit';
 import { MinusIcon, PlusIcon, ViewBarIcon } from '@blocksuite/icons/lit';
 import type { BlockStdScope } from '@blocksuite/std';
@@ -162,7 +163,7 @@ export class EdgelessZoomToolbar extends WithDisposable(LitElement) {
         @pointerdown=${stopPropagation}
       >
         <edgeless-tool-icon-button
-          .tooltip=${'Fit to screen'}
+          .tooltip=${t('fit_to_screen')}
           .tipPosition=${this._isVerticalBar() ? 'right' : 'top-end'}
           .arrow=${!this._isVerticalBar()}
           @click=${() => this.gfx.fitToScreen()}
@@ -173,7 +174,7 @@ export class EdgelessZoomToolbar extends WithDisposable(LitElement) {
           ${ViewBarIcon()}
         </edgeless-tool-icon-button>
         <edgeless-tool-icon-button
-          .tooltip=${'Zoom out'}
+          .tooltip=${t('zoom_out')}
           .tipPosition=${this._isVerticalBar() ? 'right' : 'top'}
           .arrow=${!this._isVerticalBar()}
           @click=${() => this.setZoomByStep(-ZOOM_STEP)}
@@ -191,7 +192,7 @@ export class EdgelessZoomToolbar extends WithDisposable(LitElement) {
           ${formattedZoom}
         </button>
         <edgeless-tool-icon-button
-          .tooltip=${'Zoom in'}
+          .tooltip=${t('zoom_in')}
           .tipPosition=${this._isVerticalBar() ? 'right' : 'top'}
           .arrow=${!this._isVerticalBar()}
           @click=${() => this.setZoomByStep(ZOOM_STEP)}

@@ -1,7 +1,8 @@
-import { ConnectorMode, getConnectorModeName } from '@blocksuite/affine-model';
+import { ConnectorMode } from '@blocksuite/affine-model';
 import { EditPropsStore } from '@blocksuite/affine-shared/services';
 import { QuickToolMixin } from '@blocksuite/affine-widget-edgeless-toolbar';
 import { SignalWatcher } from '@blocksuite/global/lit';
+import { t } from '@blocksuite/i18n';
 import {
   ConnectorCIcon,
   ConnectorEIcon,
@@ -16,6 +17,12 @@ const IcomMap = {
   [ConnectorMode.Straight]: ConnectorLIcon(),
   [ConnectorMode.Orthogonal]: ConnectorEIcon(),
   [ConnectorMode.Curve]: ConnectorCIcon(),
+};
+
+const tooltipMap: Record<ConnectorMode, string> = {
+  [ConnectorMode.Straight]: t('straight'),
+  [ConnectorMode.Orthogonal]: t('elbowed'),
+  [ConnectorMode.Curve]: t('curve'),
 };
 
 export class EdgelessConnectorToolButton extends QuickToolMixin(
@@ -56,7 +63,7 @@ export class EdgelessConnectorToolButton extends QuickToolMixin(
         .tooltip=${this.popper
           ? ''
           : html`<affine-tooltip-content-with-shortcut
-              data-tip="${getConnectorModeName(mode)}"
+              data-tip="${tooltipMap[mode]}"
               data-shortcut="${'C'}"
             ></affine-tooltip-content-with-shortcut>`}
         .tooltipOffset=${17}

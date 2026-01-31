@@ -38,6 +38,7 @@ import {
   renderMenu,
 } from '@blocksuite/affine-widget-edgeless-toolbar';
 import { Bound } from '@blocksuite/global/gfx';
+import { t } from '@blocksuite/i18n';
 import {
   AddTextIcon,
   ConnectorCIcon,
@@ -109,17 +110,17 @@ const REAR_ENDPOINT_STYLE_LIST = [
 
 const CONNECTOR_MODE_LIST = [
   {
-    key: 'Curve',
+    key: t('curve'),
     value: ConnectorMode.Curve,
     icon: ConnectorCIcon(),
   },
   {
-    key: 'Elbowed',
+    key: t('elbowed'),
     value: ConnectorMode.Orthogonal,
     icon: ConnectorEIcon(),
   },
   {
-    key: 'Straight',
+    key: t('straight'),
     value: ConnectorMode.Straight,
     icon: ConnectorLIcon(),
   },

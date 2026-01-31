@@ -1,5 +1,6 @@
 import { DefaultTool } from '@blocksuite/affine-block-surface';
 import { QuickToolMixin } from '@blocksuite/affine-widget-edgeless-toolbar';
+import { t } from '@blocksuite/i18n';
 import { HandIcon, SelectIcon } from '@blocksuite/icons/lit';
 import { effect } from '@preact/signals-core';
 import { css, html, LitElement } from 'lit';
@@ -77,8 +78,8 @@ export class EdgelessDefaultToolButton extends QuickToolMixin(LitElement) {
     const { active } = this;
     const tipInfo =
       type === 'pan'
-        ? { tip: 'Hand', shortcut: 'H' }
-        : { tip: 'Select', shortcut: 'V' };
+        ? { tip: t('hand_tool'), shortcut: 'H' }
+        : { tip: t('select_tool'), shortcut: 'V' };
     return html`
       <edgeless-tool-icon-button
         class="edgeless-default-button ${type}"

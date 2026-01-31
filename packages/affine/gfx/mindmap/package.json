@@ -25,6 +25,7 @@
     "@blocksuite/affine-shared": "workspace:*",
     "@blocksuite/affine-widget-edgeless-toolbar": "workspace:*",
     "@blocksuite/global": "workspace:*",
+    "@blocksuite/i18n": "workspace:*",
     "@blocksuite/icons": "^2.2.12",
     "@blocksuite/std": "workspace:*",
     "@blocksuite/store": "workspace:*",

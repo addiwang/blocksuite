@@ -3,6 +3,7 @@ import {
   TelemetryProvider,
 } from '@blocksuite/affine-shared/services';
 import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/affine-shared/theme';
+import { t } from '@blocksuite/i18n';
 import { CloseIcon } from '@blocksuite/icons/lit';
 import { baseTheme } from '@toeverything/theme';
 import { css, html, nothing, unsafeCSS } from 'lit';
@@ -26,9 +27,9 @@ export type EmbedLinkInputPopupOptions = {
 const DEFAULT_OPTIONS: EmbedLinkInputPopupOptions = {
   showCloseButton: false,
   variant: 'default',
-  title: 'Embed Link',
-  description: 'Works with links of Google Drive, Spotify…',
-  placeholder: 'Paste the Embed link...',
+  title: t('embed_link'),
+  description: t('embed_link_description'),
+  placeholder: t('embed_link_placeholder'),
   telemetrySegment: 'editor',
 };
 
@@ -270,7 +271,7 @@ export class EmbedIframeLinkInputPopup extends EmbedIframeLinkInputBase {
             @click=${this.onConfirm}
             ?disabled=${this.isInputEmpty()}
           >
-            Confirm
+            ${t('confirm')}
           </div>
         </div>
       </div>

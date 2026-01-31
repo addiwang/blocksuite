@@ -1,6 +1,7 @@
 import type { Color } from '@blocksuite/affine-model';
 import { on, once, stopPropagation } from '@blocksuite/affine-shared/utils';
 import { SignalWatcher, WithDisposable } from '@blocksuite/global/lit';
+import { t } from '@blocksuite/i18n';
 import { batch, computed, signal } from '@preact/signals-core';
 import { html, LitElement } from 'lit';
 import { property, query } from 'lit/decorators.js';
@@ -40,8 +41,8 @@ import {
 } from './utils.js';
 
 const TABS: NavTab<NavType>[] = [
-  { type: 'colors', name: 'Colors' },
-  { type: 'custom', name: 'Custom' },
+  { type: 'colors', name: t('color') },
+  { type: 'custom', name: t('custom') },
 ];
 
 export class EdgelessColorPicker extends SignalWatcher(
