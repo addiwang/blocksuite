@@ -32,6 +32,7 @@ import {
   ReleaseFromGroupIcon,
   UnlockIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import type { GfxModel } from '@blocksuite/std/gfx';
 import { html } from 'lit';
 
@@ -168,16 +169,16 @@ export const builtinMiscToolbarConfig = {
 
         return renderAlignmentMenu(ctx, models, {
           icon: AlignLeftIcon(),
-          label: 'Align objects',
-          tooltip: 'Align objects',
+          label: t('align_objects'),
+          tooltip: t('align_objects'),
         });
       },
     },
     {
       placement: ActionPlacement.End,
       id: 'a.draw-connector',
-      label: 'Draw connector',
-      tooltip: 'Draw connector',
+      label: t('draw_connector'),
+      tooltip: t('draw_connector'),
       icon: ConnectorCIcon(),
       when(ctx) {
         const models = ctx.getSurfaceModels();
@@ -218,7 +219,7 @@ export const builtinMiscToolbarConfig = {
     {
       placement: ActionPlacement.End,
       id: 'b.lock',
-      tooltip: 'Lock',
+      tooltip: t('lock'),
       icon: LockIcon(),
       run(ctx) {
         const models = ctx.getSurfaceModels();

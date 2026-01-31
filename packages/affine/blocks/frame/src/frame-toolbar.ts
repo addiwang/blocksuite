@@ -189,7 +189,7 @@ const builtinSurfaceToolbarConfig = {
         return html`
           <edgeless-color-picker-button
             class="background"
-            .label="${'Background'}"
+            .label=${t('background')}
             .pick=${onPick}
             .color=${background}
             .theme=${theme}
