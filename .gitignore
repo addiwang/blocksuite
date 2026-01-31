@@ -32,6 +32,10 @@ next-env.d.ts
 
 __screenshots__/
 
+# local scripts (not committed)
+check_deps.py
+fix_deps.py
+
 
 .pnp.*
 .yarn/*
