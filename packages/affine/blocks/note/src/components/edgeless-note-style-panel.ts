@@ -378,13 +378,13 @@ export class EdgelessNoteStylePanel extends SignalWatcher(
     return html`<div class="edgeless-note-style-custom-color-panel">
       <div class="edgeless-note-style-section-title">
         <editor-icon-button
-          aria-label="Back"
+          aria-label=${t('go_back')}
           .iconSize=${'16px'}
           @click=${this._switchToStyleTab}
         >
           ${ArrowLeftSmallIcon()}
         </editor-icon-button>
-        Custom color
+        ${t('custom_color')}
       </div>
       <edgeless-color-picker
         class="edgeless-note-custom-color-picker"
@@ -407,7 +407,10 @@ export class EdgelessNoteStylePanel extends SignalWatcher(
       <editor-menu-button
         .contentPadding=${'8px'}
         .button=${html`
-          <editor-icon-button aria-label="Note Style" .tooltip=${'Note Style'}>
+          <editor-icon-button
+            aria-label=${t('note_style')}
+            .tooltip=${t('note_style')}
+          >
             ${PaletteIcon()}
           </editor-icon-button>
         `}

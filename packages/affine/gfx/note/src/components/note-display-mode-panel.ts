@@ -2,6 +2,7 @@ import { NoteDisplayMode } from '@blocksuite/affine-model';
 import { stopPropagation } from '@blocksuite/affine-shared/utils';
 import { WithDisposable } from '@blocksuite/global/lit';
 import { EdgelessIcon, PageIcon } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -62,11 +63,11 @@ export class NoteDisplayModePanel extends WithDisposable(LitElement) {
   private _DisplayModeLabel(mode: NoteDisplayMode) {
     switch (mode) {
       case NoteDisplayMode.DocAndEdgeless:
-        return 'In Both';
+        return t('in_both');
       case NoteDisplayMode.DocOnly:
-        return 'In Page Only';
+        return t('in_page_only');
       case NoteDisplayMode.EdgelessOnly:
-        return 'In Edgeless Only';
+        return t('in_edgeless_only');
     }
   }
 

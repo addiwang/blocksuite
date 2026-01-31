@@ -185,11 +185,11 @@ const builtinSurfaceToolbarConfig = {
         const { collapse } = firstModel.props.edgeless$.value;
         const options: Pick<ToolbarAction, 'tooltip' | 'icon'> = collapse
           ? {
-              tooltip: 'Auto height',
+              tooltip: t('auto_height'),
               icon: AutoHeightIcon(),
             }
           : {
-              tooltip: 'Customized height',
+              tooltip: t('customized_height'),
               icon: CustomizedHeightIcon(),
             };
 

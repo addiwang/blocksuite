@@ -19,6 +19,7 @@ import {
   ArrowRightSmallIcon,
   InvisibleIcon,
 } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import { WidgetComponent, WidgetViewExtension } from '@blocksuite/std';
 import {
   type GfxController,
@@ -265,7 +266,7 @@ export class EdgelessAutoConnectWidget extends WidgetComponent<RootBlockModel> {
         return html`<div style=${style} class="edgeless-only-index-label">
           ${InvisibleIcon({ width: '20px', height: '20px' })}
           <affine-tooltip tip-position="bottom">
-            ${getIndexLabelTooltip(SmallDocIcon, 'Hidden on page')}
+                ${getIndexLabelTooltip(SmallDocIcon, t('hidden_on_page'))}
           </affine-tooltip>
         </div>`;
       }
