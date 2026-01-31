@@ -1,4 +1,5 @@
 import { ShapeStyle } from '@blocksuite/affine-model';
+import { t } from '@blocksuite/i18n';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -35,10 +36,10 @@ export class EdgelessShapePanel extends LitElement {
     return repeat(
       ShapeComponentConfig,
       item => item.name,
-      ({ name, generalIcon, scribbledIcon, tooltip, disabled }) =>
+      ({ name, generalIcon, scribbledIcon, tooltipKey, disabled }) =>
         html`<edgeless-tool-icon-button
           .disabled=${disabled}
-          .tooltip=${tooltip}
+          .tooltip=${t(tooltipKey)}
           .active=${this.selectedShape === name}
           .activeMode=${'background'}
           .iconSize=${'20px'}

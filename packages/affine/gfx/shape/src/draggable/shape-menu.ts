@@ -14,6 +14,7 @@ import {
 import type { ColorEvent } from '@blocksuite/affine-shared/utils';
 import { SignalWatcher, WithDisposable } from '@blocksuite/global/lit';
 import { StyleGeneralIcon, StyleScribbleIcon } from '@blocksuite/icons/lit';
+import { t } from '@blocksuite/i18n';
 import type { BlockComponent } from '@blocksuite/std';
 import {
   GfxControllerIdentifier,
@@ -171,10 +172,10 @@ export class EdgelessShapeMenu extends SignalWatcher(
           }
           <div class="shape-type-container">
             ${ShapeComponentConfig.map(
-              ({ name, generalIcon, scribbledIcon, tooltip }) => {
+                ({ name, generalIcon, scribbledIcon, tooltipKey }) => {
                 return html`
                   <edgeless-tool-icon-button
-                    .tooltip=${tooltip}
+                      .tooltip=${t(tooltipKey)}
                     .active=${shapeName === name}
                     .activeMode=${'background'}
                     .iconSize=${'20px'}
