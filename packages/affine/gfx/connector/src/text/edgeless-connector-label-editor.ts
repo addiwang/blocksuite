@@ -10,6 +10,7 @@ import { almostEqual } from '@blocksuite/affine-shared/utils';
 import { BlockSuiteError, ErrorCode } from '@blocksuite/global/exceptions';
 import { Bound, type IVec, Vec } from '@blocksuite/global/gfx';
 import { WithDisposable } from '@blocksuite/global/lit';
+import { t } from '@blocksuite/i18n';
 import {
   type BlockComponent,
   type BlockStdScope,
@@ -369,7 +370,7 @@ export class EdgelessConnectorLabelEditor extends WithDisposable(
         ${isEmpty
           ? html`
               <span class="edgeless-connector-label-editor-placeholder">
-                Add text
+                ${t('add_text')}
               </span>
             `
           : nothing}

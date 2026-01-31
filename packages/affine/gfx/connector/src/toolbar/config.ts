@@ -192,7 +192,7 @@ export const connectorToolbarConfig = {
         return html`
           <edgeless-color-picker-button
             class="stroke-color"
-            .label="${'Stroke style'}"
+            .label=${t('stroke_style')}
             .pick=${onPickColor}
             .color=${stroke}
             .theme=${theme}
@@ -257,7 +257,7 @@ export const connectorToolbarConfig = {
             };
 
             return renderMenu({
-              label: 'Start point style',
+              label: t('start_point_style'),
               items: FRONT_ENDPOINT_STYLE_LIST,
               currentValue: pointStyle,
               onPick,
@@ -267,7 +267,7 @@ export const connectorToolbarConfig = {
         {
           id: 'b.flip-direction',
           icon: FlipDirectionIcon(),
-          tooltip: 'Flip direction',
+          tooltip: t('flip_direction'),
           run(ctx) {
             const models = ctx.getSurfaceModelsByType(ConnectorElementModel);
             if (!models.length) return;
@@ -303,7 +303,7 @@ export const connectorToolbarConfig = {
             };
 
             return renderMenu({
-              label: 'End point style',
+              label: t('end_point_style'),
               items: REAR_ENDPOINT_STYLE_LIST,
               currentValue: pointStyle,
               onPick,
@@ -324,8 +324,8 @@ export const connectorToolbarConfig = {
             };
 
             return renderMenu({
-              label: 'Shape',
-              tooltip: 'Connector shape',
+              label: t('connector_shape'),
+              tooltip: t('connector_shape'),
               items: CONNECTOR_MODE_LIST,
               currentValue: mode,
               onPick,
@@ -336,7 +336,7 @@ export const connectorToolbarConfig = {
     },
     {
       id: 'g.text',
-      tooltip: 'Add text',
+      tooltip: t('add_text'),
       icon: AddTextIcon(),
       when(ctx) {
         const models = ctx.getSurfaceModelsByType(ConnectorElementModel);

@@ -35,6 +35,7 @@ import {
   renderMenu,
 } from '@blocksuite/affine-widget-edgeless-toolbar';
 import { Bound } from '@blocksuite/global/gfx';
+import { t } from '@blocksuite/i18n';
 import { AddTextIcon, ShapeIcon } from '@blocksuite/icons/lit';
 import { BlockFlavourIdentifier } from '@blocksuite/std';
 import { html } from 'lit';
@@ -260,7 +261,7 @@ export const shapeToolbarConfig = {
     },
     {
       id: 'f.text',
-      tooltip: 'Add text',
+      tooltip: t('add_text'),
       icon: AddTextIcon(),
       when(ctx) {
         const models = ctx.getSurfaceModelsByType(ShapeElementModel);
