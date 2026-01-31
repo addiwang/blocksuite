@@ -15,6 +15,7 @@ import {
 } from '@blocksuite/affine-shared/utils';
 import { SignalWatcher, WithDisposable } from '@blocksuite/global/lit';
 import { batch, signal } from '@preact/signals-core';
+import { t } from '@blocksuite/i18n';
 import { css, html, LitElement } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { choose } from 'lit-html/directives/choose.js';
@@ -195,7 +196,10 @@ export class EdgelessShapeColorPicker extends WithDisposable(
         .contentPadding="${tabType === 'normal' ? '8px' : '0px'}"
         @click=${stopPropagation}
         .button=${html`
-          <editor-icon-button aria-label="Color" .tooltip="${'Color'}">
+          <editor-icon-button
+            aria-label=${t('color')}
+            .tooltip=${t('color')}
+          >
             <edgeless-color-button
               .color=${fillColorWithoutAlpha}
             ></edgeless-color-button>
@@ -211,14 +215,14 @@ export class EdgelessShapeColorPicker extends WithDisposable(
                   ${repeat(
                     [
                       {
-                        label: 'Fill color',
+                        label: t('fill_color'),
                         type: 'fillColor',
                         value: fillColor,
                         hollowCircle: false,
                         onPick: this.#pickFillColor,
                       },
                       {
-                        label: 'Border color',
+                        label: t('border_color'),
                         type: 'strokeColor',
                         value: strokeColor,
                         hollowCircle: true,

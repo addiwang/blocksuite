@@ -20,6 +20,8 @@ import type { ExtensionType } from '@blocksuite/store';
 import { computed } from '@preact/signals-core';
 import { html } from 'lit';
 
+import { t } from '@blocksuite/i18n';
+
 import { changeNoteDisplayMode } from '../commands';
 import { NoteConfigExtension } from '../config';
 
@@ -149,7 +151,7 @@ const builtinSurfaceToolbarConfig = {
       label: 'Slicer',
       icon: ScissorsIcon(),
       tooltip: html`<affine-tooltip-content-with-shortcut
-        data-tip="${'Cutting mode'}"
+        data-tip="${t('cutting_mode')}"
         data-shortcut="${'-'}"
       ></affine-tooltip-content-with-shortcut>`,
       active: false,

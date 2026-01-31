@@ -23,6 +23,7 @@ import {
 import { SignalWatcher, WithDisposable } from '@blocksuite/global/lit';
 import { ArrowLeftSmallIcon, PaletteIcon } from '@blocksuite/icons/lit';
 import { BlockStdScope, PropTypes, requiredProperties } from '@blocksuite/std';
+import { t } from '@blocksuite/i18n';
 import { css, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { choose } from 'lit/directives/choose.js';
@@ -292,7 +293,7 @@ export class EdgelessNoteStylePanel extends SignalWatcher(
   private _renderStylePanel() {
     return html`<div class="edgeless-note-style-panel">
       <div class="edgeless-note-style-section">
-        <div class="edgeless-note-style-section-title">Fill color</div>
+        <div class="edgeless-note-style-section-title">${t('fill_color')}</div>
         <edgeless-color-panel
           role="listbox"
           .value=${this._background}
@@ -309,7 +310,7 @@ export class EdgelessNoteStylePanel extends SignalWatcher(
         </edgeless-color-panel>
       </div>
       <div class="edgeless-note-style-section">
-        <div class="edgeless-note-style-section-title">Shadow</div>
+        <div class="edgeless-note-style-section-title">${t('shadow')}</div>
         <edgeless-note-shadow-menu
           .background=${this._background}
           .theme=${this._theme}
@@ -321,7 +322,7 @@ export class EdgelessNoteStylePanel extends SignalWatcher(
         class="edgeless-note-style-section"
         data-testid="affine-note-border-style-panel"
       >
-        <div class="edgeless-note-style-section-title">Border</div>
+        <div class="edgeless-note-style-section-title">${t('border')}</div>
         <edgeless-line-styles-panel
           .lineSize=${this._borderSize}
           .lineStyle=${this._borderStyle}
@@ -332,7 +333,7 @@ export class EdgelessNoteStylePanel extends SignalWatcher(
         class="edgeless-note-style-section"
         data-testid="affine-note-corner-radius-panel"
       >
-        <div class="edgeless-note-style-section-title">Corner Radius</div>
+        <div class="edgeless-note-style-section-title">${t('corner_radius')}</div>
         <div class="edgeless-note-corner-radius-panel">
           <affine-slider
             .value=${this._borderRadius}
